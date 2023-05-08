@@ -30,8 +30,20 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Flutter Components",
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              letterSpacing: 1,
+            ), //Para que funciona se requiere internet
+          ),
 
 
+
+          
         ],
       ),
     ));
