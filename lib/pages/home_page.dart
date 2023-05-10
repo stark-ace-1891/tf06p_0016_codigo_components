@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tf06p_0016_codigo_components/pages/avatar_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -46,7 +47,15 @@ class HomePage extends StatelessWidget {
                 width: 160,
                 child: Divider(),
               ),
-              ItemComponentWidget(),
+              ItemComponentWidget(
+                title: "Avatar",
+              ),
+              ItemComponentWidget(
+                title: "Alerts",
+              ),
+              ItemComponentWidget(
+                title: "Hola",
+              ),
             ],
           ),
         ),
@@ -56,9 +65,9 @@ class HomePage extends StatelessWidget {
 }
 
 class ItemComponentWidget extends StatelessWidget {
-  const ItemComponentWidget({
-    super.key,
-  });
+  String title;
+
+  ItemComponentWidget({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -76,16 +85,20 @@ class ItemComponentWidget extends StatelessWidget {
         ],
       ),
       child: ListTile(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => AvatarPage()));
+        },
         leading: Icon(
           Icons.check_circle_outline,
           color: Color(0xff14213d),
         ),
         title: Text(
-          "Avatar",
+          title,
           style: GoogleFonts.poppins(),
         ),
         subtitle: Text(
-          "Ir al detalle del avatar",
+          "Ir al detalle del $title",
           style: GoogleFonts.poppins(),
         ),
         trailing: Icon(
