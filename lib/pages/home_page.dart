@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tf06p_0016_codigo_components/pages/alert_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/avatar_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,12 +50,11 @@ class HomePage extends StatelessWidget {
               ),
               ItemComponentWidget(
                 title: "Avatar",
+                toPage: AvatarPage(),
               ),
               ItemComponentWidget(
                 title: "Alerts",
-              ),
-              ItemComponentWidget(
-                title: "Hola",
+                toPage: AlertPage(),
               ),
             ],
           ),
@@ -66,8 +66,9 @@ class HomePage extends StatelessWidget {
 
 class ItemComponentWidget extends StatelessWidget {
   String title;
+  Widget toPage;
 
-  ItemComponentWidget({required this.title});
+  ItemComponentWidget({required this.title, required this.toPage});
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +88,7 @@ class ItemComponentWidget extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AvatarPage()));
+              context, MaterialPageRoute(builder: (context) => toPage));
         },
         leading: Icon(
           Icons.check_circle_outline,
