@@ -67,7 +67,7 @@ class CardPage extends StatelessWidget {
                         color: Colors.deepPurpleAccent.withOpacity(0.6),
                         blurRadius: 10,
                         offset: Offset(4, 4),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -125,10 +125,66 @@ class CardPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
+
+          //Card 3
+          Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 14,
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.06),
+                  blurRadius: 12,
+                  offset: Offset(4, 4),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                      maxLines: 6,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 130,
+                  height: 130,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        "https://images.pexels.com/photos/16763929/pexels-photo-16763929.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                      ),
+                    ),
+                  ),
+                ),
+
+                // ClipRRect(
+                //   borderRadius: BorderRadius.circular(16),
+                //   child: Image.network(
+                //     "https://images.pexels.com/photos/16763929/pexels-photo-16763929.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                //     height: 130,
+                //     width: 130,
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
+              ],
+            ),
+          ),
+        
         ],
       ),
     );
