@@ -263,19 +263,63 @@ class CardPage extends StatelessWidget {
               ),
             ),
 
-            // Container(
-            //   child: Row(
-            //     children: [
-            //       CircleAvatar(),
-            //       Column(
-            //         children: [
-            //           Text("xxxx"),
-            //           Text("yyy"),
-            //         ],
-            //       )
-            //     ],
-            //   ),
-            // ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    offset: Offset(4, 4),
+                    blurRadius: 12,
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    child: Icon(
+                      Icons.forum_outlined,
+                      size: 18,
+                      color: Colors.blueAccent,
+                    ),
+                    minRadius: 25,
+                    backgroundColor: Colors.blue.withOpacity(0.25),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "The quick, brown fox juumps over",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                          maxLines: 2,
+                          // overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
 
             // Container(
             //   child: Column(
