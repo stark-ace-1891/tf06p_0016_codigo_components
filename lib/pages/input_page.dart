@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InputPage extends StatelessWidget {
   const InputPage({super.key});
@@ -65,6 +66,27 @@ class InputPage extends StatelessWidget {
               onChanged: (String value) {
                 print(value);
               },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Buscar producto...",
+                hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  color: Colors.black38,
+                ),
+                fillColor: Colors.white,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(14),
+                  borderSide: BorderSide(
+                    color: Colors.blue,
+                    width: 0,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
