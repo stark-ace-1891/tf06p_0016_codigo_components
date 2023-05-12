@@ -10,6 +10,9 @@ class SelectionPage extends StatefulWidget {
 class _SelectionPageState extends State<SelectionPage> {
   final TextEditingController dateController = TextEditingController();
   int selectedValue = 1;
+
+  List<String> superheroes = ["Batman", "Superman", "Wonder woman", "Flash"];
+
   selectedDate() async {
     DateTime? dateSelected = await showDatePicker(
       context: context,
@@ -48,29 +51,50 @@ class _SelectionPageState extends State<SelectionPage> {
             SizedBox(
               height: 30,
             ),
-            DropdownButton(
-              value: selectedValue,
-              items: [
-                DropdownMenuItem(
-                  child: Text("Elemento 1"),
-                  value: 1,
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 6,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    blurRadius: 12,
+                    offset: Offset(4, 4),
+                  )
+                ],
+              ),
+              child: DropdownButton(
+                isExpanded: true,
+                underline: Container(),
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.black54,
                 ),
-                DropdownMenuItem(
-                  child: Text("Elemento 2"),
-                  value: 2,
-                ),
-                DropdownMenuItem(
-                  child: Text("Elemento 3"),
-                  value: 3,
-                ),
-              ],
-              onChanged: (int? value) {
-                print(value);
-                selectedValue = value!;
-                setState(() {
-                  
-                });
-              },
+                value: selectedValue,
+                items: [
+                  DropdownMenuItem(
+                    child: Text("Elemento 1"),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Elemento 2"),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Elemento 3"),
+                    value: 3,
+                  ),
+                ],
+                onChanged: (int? value) {
+                  print(value);
+                  selectedValue = value!;
+                  setState(() {});
+                },
+              ),
             )
           ],
         ),
