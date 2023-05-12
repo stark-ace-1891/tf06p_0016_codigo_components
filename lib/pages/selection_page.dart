@@ -13,6 +13,21 @@ class _SelectionPageState extends State<SelectionPage> {
 
   List<String> superheroes = ["Batman", "Superman", "Wonder woman", "Flash"];
 
+  // var prueba = [
+  //   DropdownMenuItem(
+  //     child: Text("Elemento 1"),
+  //     value: 1,
+  //   ),
+  //   DropdownMenuItem(
+  //     child: Text("Elemento 2"),
+  //     value: 2,
+  //   ),
+  //   DropdownMenuItem(
+  //     child: Text("Elemento 3"),
+  //     value: 3,
+  //   ),
+  // ];
+
   selectedDate() async {
     DateTime? dateSelected = await showDatePicker(
       context: context,
@@ -75,20 +90,30 @@ class _SelectionPageState extends State<SelectionPage> {
                   color: Colors.black54,
                 ),
                 value: selectedValue,
-                items: [
-                  DropdownMenuItem(
-                    child: Text("Elemento 1"),
-                    value: 1,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("Elemento 2"),
-                    value: 2,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("Elemento 3"),
-                    value: 3,
-                  ),
-                ],
+                items: superheroes
+                    .map((element) {
+                  // get index
+                  var index = superheroes
+                      .indexOf(element) + 1;
+                  return DropdownMenuItem(
+                    child: Text(element),
+                    value: index,
+                  );
+                }).toList(),
+                // items: [
+                //   DropdownMenuItem(
+                //     child: Text("Elemento 1"),
+                //     value: 1,
+                //   ),
+                //   DropdownMenuItem(
+                //     child: Text("Elemento 2"),
+                //     value: 2,
+                //   ),
+                //   DropdownMenuItem(
+                //     child: Text("Elemento 3"),
+                //     value: 3,
+                //   ),
+                // ],
                 onChanged: (int? value) {
                   print(value);
                   selectedValue = value!;
