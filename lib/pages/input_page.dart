@@ -8,6 +8,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   bool isInvisible = true;
+  String textGeneral = "";
+  final TextEditingController _myController = TextEditingController(text: "Luis");
 
   @override
   Widget build(BuildContext context) {
@@ -129,11 +131,11 @@ class _InputPageState extends State<InputPage> {
                   suffix: IconButton(
                     onPressed: () {
                       isInvisible = !isInvisible;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     },
-                    icon: isInvisible ? Icon(Icons.remove_red_eye) : Icon(Icons.remove_red_eye_outlined),
+                    icon: isInvisible
+                        ? Icon(Icons.remove_red_eye)
+                        : Icon(Icons.remove_red_eye_outlined),
                   ),
                 ),
               ),
@@ -141,6 +143,7 @@ class _InputPageState extends State<InputPage> {
                 height: 15,
               ),
               TextField(
+                controller: _myController,
                 style: GoogleFonts.poppins(),
                 decoration: InputDecoration(
                   counterText: "",
@@ -150,8 +153,9 @@ class _InputPageState extends State<InputPage> {
                 },
                 onChanged: (String text) {
                   print(text);
+                  textGeneral = text;
                 },
-                maxLength: 8,
+                // maxLength: 8,
                 keyboardType: TextInputType.text,
                 cursorColor: Colors.pinkAccent,
                 readOnly: false,
@@ -160,7 +164,22 @@ class _InputPageState extends State<InputPage> {
                   print(value);
                 },
               ),
-      
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print(_myController.text);
+                },
+                child: Text("Obtener valor del text"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // _myController.text = "Cesar";
+                  _myController.clear();
+                },
+                child: Text("Reset"),
+              ),
             ],
           ),
         ),
