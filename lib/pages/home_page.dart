@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tf06p_0016_codigo_components/pages/alert_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/avatar_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/card_page.dart';
+import 'package:tf06p_0016_codigo_components/pages/input_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -60,6 +61,10 @@ class HomePage extends StatelessWidget {
               ItemComponentWidget(
                 title: "Card",
                 toPage: CardPage(),
+              ),
+              ItemComponentWidget(
+                title: "Inputs",
+                toPage: InputPage(),
               ),
             ],
           ),
