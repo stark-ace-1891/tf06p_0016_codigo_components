@@ -175,15 +175,21 @@ class AlertPage extends StatelessWidget {
                     ...poderes.toList().map(
                       (String e) {
                         int index = poderes.indexOf(e);
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Text(poderes[index])
-                          ],
+                        return Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal: 50,
+                            vertical: 5,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.check,
+                                color: Colors.amber,
+                              ),
+                              Text(poderes[index])
+                            ],
+                          ),
                         );
                       },
                     ),
