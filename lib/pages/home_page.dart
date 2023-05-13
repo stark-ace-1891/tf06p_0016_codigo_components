@@ -4,6 +4,7 @@ import 'package:tf06p_0016_codigo_components/pages/alert_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/avatar_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/card_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/input_page.dart';
+import 'package:tf06p_0016_codigo_components/pages/list_page.dart';
 import 'package:tf06p_0016_codigo_components/pages/selection_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -70,6 +71,10 @@ class HomePage extends StatelessWidget {
               ItemComponentWidget(
                 title: "Selection",
                 toPage: SelectionPage(),
+              ),
+              ItemComponentWidget(
+                title: "List",
+                toPage: ListPage(),
               ),
             ],
           ),
