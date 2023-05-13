@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tf06p_0016_codigo_components/pages/alert_page.dart';
 
 class ListPage extends StatelessWidget {
   List<String> superheroes = [
@@ -99,6 +100,9 @@ class ListPage extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           print(index);
           return ListTile(
+            onTap: () {
+              AlertPage().showMyAlertHeroes(context, teamMap["members"][index]);
+            },
             title: Text(teamMap["members"][index]["name"]),
             subtitle: Text(teamMap["members"][index]["secretIdentity"]),
             leading: CircleAvatar(

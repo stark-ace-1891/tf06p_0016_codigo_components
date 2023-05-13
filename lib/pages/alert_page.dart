@@ -130,6 +130,102 @@ class AlertPage extends StatelessWidget {
         });
   }
 
+  void showMyAlertHeroes(BuildContext mandarina, Map<String, dynamic> data) {
+    List<String> poderes = data["powers"];
+    showDialog(
+        context: mandarina,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            contentPadding: EdgeInsets.all(8),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            // title: Text("Titulo del alert"),
+            backgroundColor: Colors.white,
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  data["name"],
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                const Divider(
+                  thickness: 0.7,
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                CircleAvatar(
+                  backgroundColor: Colors.black12,
+                  backgroundImage: NetworkImage(
+                    data["image"],
+                  ),
+                ),
+                Text("${data['age']} años"),
+                const SizedBox(
+                  height: 6,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ...poderes.toList().map(
+                      (String e) {
+                        int index = poderes.indexOf(e);
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            Text(poderes[index])
+                          ],
+                        );
+                      },
+                    ),
+                    // ...poderes.toList().map(
+                    //       (e) => Icon(
+                    //         Icons.star,
+                    //         color: Colors.amber,
+                    //       ),
+                    //     ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  data["secretIdentity"],
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: Colors.black54,
+                    fontSize: 13,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("Aceptar"),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
